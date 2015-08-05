@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-DEBUG=/bin/true
+DEBUG=/bin/false
 
 ${DEBUG} && set -x
 ${DEBUG} && echo "\n\nALL VARIABLES:\n"
@@ -16,7 +16,6 @@ function push_image() {
     local i=0
     local image=$1
     while true; do
-        ${DEBUG} && echo -e "\nPUSHING Image ${image}, round ${i}"
         docker push ${image} > /dev/stderr | true
         if [[ ${PIPESTATUS[0]} -eq 0 ]]; then
             break
@@ -26,7 +25,7 @@ function push_image() {
             exit 23
         fi
         i=$[$i+1]
-        ${DEBUG} && echo -e "Sleeping 15 seconds."
+        echo -e "Sleeping 15 seconds."
         sleep 15;
     done
 }
@@ -36,7 +35,7 @@ function build_image() {
     local docker_tag=$1
     local docker_dir=$2
     while true; do
-        ${DEBUG} && echo -e "\nBuilding Image ${docker_tag}, round ${j}"
+        echo -e "\nBuilding Image ${docker_tag}, round ${j}"
         docker build -t ${docker_tag} ${docker_dir} > /dev/stderr | true
         if [[ ${PIPESTATUS[0]} -eq 0 ]]; then
             break
@@ -46,7 +45,7 @@ function build_image() {
             exit 23
         fi
         j=$[$j+1]
-        ${DEBUG} && echo -e "Sleeping 15 seconds."
+        echo -e "Sleeping 15 seconds."
         sleep 15;
     done
 }
@@ -57,29 +56,21 @@ if [[ -z ${CHANNEL+x} ]]; then
 elif [[ -z "$DEPLOY" ]]; then
     echo "PREPARING ${CHANNEL} FOR TEST"
     export VERSION=${CHANNEL}-testing
-    ${DEBUG} && echo "Path 0: " $(pwd)
     for repo in platform-*; do
         if [[ -f ./${repo}/Dockerfile ]]; then
             NAME=${repo#platform-}
             echo -e "\n\n\nBUILDING $NAME:${VERSION}\n"
-            ${DEBUG} && echo "Path 1: " $(pwd)
             cd ${repo}
-            ${DEBUG} && echo "Path 2: " $(pwd)
             [ -x ./ci-build.sh ] && ./ci-build.sh || true
-            ${DEBUG} && echo "Path 3: " $(pwd)
             build_image experimentalplatform/${NAME}:${VERSION} .
-            ${DEBUG} && echo "Path 4: " $(pwd)
             push_image experimentalplatform/${NAME}:${VERSION}
-            ${DEBUG} && echo "Path 5: " $(pwd)
             cd ..
-            ${DEBUG} && echo "Path 6: " $(pwd)
         fi
     done
     echo -e "\n\nCHANNEL ${VERSION} BUILT!\n"
 else
     echo "DEPLOYING ${CHANNEL}"
     VERSION=${CHANNEL}
-    ${DEBUG} && echo "Path 1: " $(pwd)
     for repo in platform-*; do
         if [[ -f ./${repo}/Dockerfile ]]; then
             NAME=${repo#platform-}
