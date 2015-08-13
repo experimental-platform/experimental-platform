@@ -13,7 +13,7 @@ test:
 
 deployment:
   release:
-    branch: [alpha, beta, stable]
+    branch: hinnerk-add-ci
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - ./build.sh
