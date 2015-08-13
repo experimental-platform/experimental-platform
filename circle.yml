@@ -22,4 +22,5 @@ deployment:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - ./build.sh
       # TODO: build("trigger-tests-integration", CHANNEL: 'alpha-testing')
-      # TODO: - DEPLOY=yes ./build.sh
+      - DEPLOY=yes ./build.sh
+
