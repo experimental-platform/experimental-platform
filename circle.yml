@@ -1,0 +1,21 @@
+machine:
+  services:
+    - docker
+
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init
+
+test:
+  override:
+    - "echo 'TODO: Insert some tests here?'"
+
+deployment:
+  release:
+    branch: [alpha, beta, stable]
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - ./build.sh
+      # TODO: build("trigger-tests-integration", CHANNEL: 'alpha-testing')
+      # - DEPLOY=yes ./build.sh

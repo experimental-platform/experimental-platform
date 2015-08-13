@@ -10,7 +10,7 @@ ${DEBUG} && echo "ALL VARIABLES DONE\n\n"
 
 # TODO: does build but not use the built "ubuntu" :(
 
-CHANNEL=${GIT_BRANCH#*/}
+CHANNEL=${CIRCLE_BRANCH}
 
 function push_image() {
     local i=0
