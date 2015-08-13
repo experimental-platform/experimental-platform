@@ -17,10 +17,10 @@ test:
 
 deployment:
   release:
-    branch: hinnerk-add-ci
+    branch: [alpha, beta, stable]
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - ./build.sh
-      # TODO: build("trigger-tests-integration", CHANNEL: 'alpha-testing')
+      # TODO: trigger all integration tests
       - DEPLOY=yes ./build.sh
 
