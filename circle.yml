@@ -10,18 +10,18 @@ checkout:
 dependencies:
   override:
     - npm install -g mustache
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+    - ./build.sh
 
 test:
   override:
-    - "echo 'TODO: Insert some tests here?'"
+    - "echo 'TODO: Insert some tests here!'"
+    # TODO: trigger all integration tests & wait for success!
 
 deployment:
   release:
     branch: /.*/
     commands:
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - ./build.sh
-      # TODO: trigger all integration tests
       - git submodule update --init --force
       - DEPLOY=yes ./build.sh
 
