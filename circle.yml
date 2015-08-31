@@ -22,6 +22,7 @@ deployment:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - ./build.sh
       # TODO: trigger all integration tests
+      - git submodule update --init --force
       - DEPLOY=yes ./build.sh
 
 notify:
