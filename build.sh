@@ -55,7 +55,7 @@ if [[ -z ${CHANNEL+x} ]]; then
     exit 23
 elif [[ -z "$DEPLOY" ]]; then
     echo "PREPARING ${CHANNEL} FOR TEST"
-    VERSION=${CHANNEL}-testing
+    export VERSION=${CHANNEL}-testing
     for repo in platform-*; do
         if [[ -f ./${repo}/Dockerfile ]]; then
             NAME=${repo#platform-}
@@ -70,7 +70,7 @@ elif [[ -z "$DEPLOY" ]]; then
     echo -e "\n\nCHANNEL ${VERSION} BUILT!\n"
 else
     echo "DEPLOYING ${CHANNEL}"
-    VERSION=${CHANNEL}
+    export VERSION=${CHANNEL}
     for repo in platform-*; do
         if [[ -f ./${repo}/Dockerfile ]]; then
             NAME=${repo#platform-}
