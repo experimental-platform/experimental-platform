@@ -24,3 +24,6 @@ deployment:
       # TODO: trigger all integration tests
       - DEPLOY=yes ./build.sh
 
+notify:
+  webhooks:
+    - url: $WEBHOOK_URL
