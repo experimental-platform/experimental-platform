@@ -59,14 +59,16 @@ elif [[ -z "$DEPLOY" ]]; then
     for repo in platform-*; do
         if [[ -f ./${repo}/Dockerfile ]]; then
             NAME=${repo#platform-}
-            echo -e "\n\n\nBUILDING $NAME:${VERSION}\n"
+            echo -e "\n\n\nBUILDING ${NAME}:${VERSION}\n"
             cd ${repo}
             [ -x ./ci-build.sh ] && ./ci-build.sh || true
             build_image experimentalplatform/${NAME}:${VERSION} .
-            if [[ "$NAME" == "configure" ]]; then
-                UNITCOUNT=$(docker run -ti --rm experimentalplatform/configure:${VERSION} bash -c 'grep -L testing /services/*-protonet.service | wc -l')
-                echo -e "\n\n\nAssertion: Currently there are these many systemd units that contain the word 'testing': ${UNITCOUNT}\n\n"
-            fi
+            #if [[ "$NAME" == "configure" ]]; then
+            #    echo -e "\n\n\nComponent platform-configure detected, counting occurrances of the word 'testing'..."
+            #    UNITCOUNT=$(docker run -ti --rm experimentalplatform/configure:${VERSION} bash -c 'grep -l testing /services/*-protonet.service | wc -l')
+            #    echo -e "Assertion: There are these many systemd units that contain the word 'testing': ${UNITCOUNT}\n\n"
+            #fi
+            echo -e "\n\n\nDEPLOYING ${NAME}:${VERSION}\n"
             push_image experimentalplatform/${NAME}:${VERSION}
             cd ..
         fi
