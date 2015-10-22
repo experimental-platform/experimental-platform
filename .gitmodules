@@ -1,39 +1,39 @@
 [submodule "platform-app-manager"]
 	path = platform-app-manager
-	url = git@github.com:experimental-platform/platform-app-manager.git
+	url = https://github.com/experimental-platform/platform-app-manager.git
 [submodule "platform-buildstep"]
 	path = platform-buildstep
-	url = git@github.com:experimental-platform/platform-buildstep.git
+	url = https://github.com/experimental-platform/platform-buildstep.git
 [submodule "platform-central-gateway"]
 	path = platform-central-gateway
-	url = git@github.com:experimental-platform/platform-central-gateway.git
+	url = https://github.com/experimental-platform/platform-central-gateway.git
 [submodule "platform-configure"]
 	path = platform-configure
-	url = git@github.com:experimental-platform/platform-configure.git
+	url = https://github.com/experimental-platform/platform-configure.git
 [submodule "platform-dokku"]
 	path = platform-dokku
-	url = git@github.com:experimental-platform/platform-dokku.git
+	url = https://github.com/experimental-platform/platform-dokku.git
 [submodule "platform-frontend"]
 	path = platform-frontend
-	url = git@github.com:experimental-platform/platform-frontend.git
+	url = https://github.com/experimental-platform/platform-frontend.git
 [submodule "platform-hostname-avahi"]
 	path = platform-hostname-avahi
-	url = git@github.com:experimental-platform/platform-hostname-avahi.git
+	url = https://github.com/experimental-platform/platform-hostname-avahi.git
 [submodule "platform-hostname-smb"]
 	path = platform-hostname-smb
-	url = git@github.com:experimental-platform/platform-hostname-smb.git
+	url = https://github.com/experimental-platform/platform-hostname-smb.git
 [submodule "platform-monitoring"]
 	path = platform-monitoring
-	url = git@github.com:experimental-platform/platform-monitoring.git
+	url = https://github.com/experimental-platform/platform-monitoring.git
 [submodule "platform-ptw"]
 	path = platform-ptw
-	url = git@github.com:experimental-platform/platform-ptw.git
+	url = https://github.com/experimental-platform/platform-ptw.git
 [submodule "platform-skvs"]
 	path = platform-skvs
-	url = git@github.com:experimental-platform/platform-skvs.git
+	url = https://github.com/experimental-platform/platform-skvs.git
 [submodule "platform-systemd-proxy"]
 	path = platform-systemd-proxy
-	url = git@github.com:experimental-platform/platform-systemd-proxy.git
+	url = https://github.com/experimental-platform/platform-systemd-proxy.git
 [submodule "platform-ubuntu"]
 	path = platform-ubuntu
-	url = git@github.com:experimental-platform/platform-ubuntu.git
+	url = https://github.com/experimental-platform/platform-ubuntu.git

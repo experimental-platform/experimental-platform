@@ -1,0 +1,16 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - git submodule sync
+  - git submodule update --init
+
+install:
+  - npm install -g mustache
+  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+  - ./build.sh
+  - git submodule update --init --force
+
+script:
+  - DEPLOY=yes ./build.sh
