@@ -10,7 +10,7 @@ ${DEBUG} && echo "ALL VARIABLES DONE\n\n"
 
 # TODO: does build but not use the built "ubuntu" :(
 
-CHANNEL=${CIRCLE_BRANCH}
+CHANNEL=${TRAVIS_BRANCH}
 
 function push_image() {
     local i=0
