@@ -40,3 +40,6 @@
 [submodule "platform-pulseaudio"]
 	path = platform-pulseaudio
 	url = https://github.com/experimental-platform/platform-pulseaudio.git
+[submodule "platform-hardware"]
+	path = platform-hardware
+	url = https://github.com/experimental-platform/platform-hardware.git

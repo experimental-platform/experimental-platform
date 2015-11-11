@@ -1,12 +1,35 @@
 #!/usr/bin/env bash
 set -e
 
-git checkout alpha
-git pull
-git submodule update --init
-git submodule foreach git checkout master
-cd platform-ubuntu; git checkout latest; cd ..
-cd platform-buildstep; git checkout herokuish; cd ..
-git submodule foreach git pull
+CHANNEL=${1:-alpha}
 
-echo "ALL REPOSITOREIS UPDATED. PLEASE REVIEW, COMMIT AND PUSH NOW."
+function main() {
+    available_channels="development alpha"
+    if [[ ! ${available_channels} =~ ${CHANNEL} ]]; then
+        echo "INVALID channel '${CHANNEL}'"
+        exit 23
+    fi
+
+    if [[ "${CHANNEL}" == "development" ]]; then
+        CHANNEL="alpha"
+        PRODUCT_CHANNEL="development"
+    else
+        PRODUCT_CHANNEL="master"
+    fi
+    echo "Working on out release channel ${CHANNEL} and product channel ${PRODUCT_CHANNEL}"
+    echo -e "\n\n\nEXPERIMENTAL-PLATFORM: ${CHANNEL}\n\n"
+    git checkout ${CHANNEL}
+    git pull
+    git submodule update --init
+    git submodule foreach git fetch --all
+    echo -e "\n\n\nEVERYTHING ELSE: ${PRODUCT_CHANNEL}\n\n"
+    git submodule foreach git checkout ${PRODUCT_CHANNEL}
+    cd platform-ubuntu; git checkout latest; cd ..
+    cd platform-buildstep; git checkout herokuish; cd ..
+    git submodule foreach git pull
+
+    echo "ALL REPOSITORIES UPDATED. PLEASE REVIEW, COMMIT AND PUSH NOW."
+}
+
+
+main
