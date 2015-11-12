@@ -37,3 +37,6 @@
 [submodule "platform-ubuntu"]
 	path = platform-ubuntu
 	url = https://github.com/experimental-platform/platform-ubuntu.git
+[submodule "platform-pulseaudio"]
+	path = platform-pulseaudio
+	url = https://github.com/experimental-platform/platform-pulseaudio.git
