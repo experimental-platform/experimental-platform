@@ -31,10 +31,9 @@ That cool app that you just pushed to the experimental platform now needs a simp
 
 A standard for the internet-of-things (IoT)? It's already here: REST. So no need to reinvent the weel. Experimental Platform aims to provide an easy way to access all of a smart devices capability. Wether it's reading sensors or actuating actuators.
 
-### And much more
+### First things first
 
-In the first phase, we're aiming to build an IoT environment that's easy to use, fun and reliable. The Features mentioned above are just the beginning. We have a lot of ideas in the back of our heads and we are sure you'll have some too.
-
+In the first phase, we're aiming to build an IoT environment that's easy to use, fun and reliable. Help us make this happen!
 
 ## Install on existing hardware
 
