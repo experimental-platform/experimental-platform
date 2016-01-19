@@ -89,3 +89,86 @@ Platform installation is based on a running CoreOS instance. To simplify local t
 
 This step will install the software and then reboot the system. Depending on the network configuration it might not come up on its own, in that case please start it manually with `vagrant up`. A few moments later the experimental platform web interface should be available under the address displayed by the installation script.
 
+# Related repositories
+
+![Overview](https://raw.githubusercontent.com/experimental-platform/experimental-platform.github.io/master/img/components.jpg)
+
+https://github.com/experimental-platform/continuous-delivery
+
+Meta repository which links all other repositories and triggers releases
+
+
+https://github.com/experimental-platform/platform-dokku
+
+Plugins for and configuration updates to dokku for the experimental platform
+
+
+https://github.com/experimental-platform/platform-app-manager
+
+A thin rest wrapper for dokku
+
+
+https://github.com/experimental-platform/platform-buildstep
+
+Heroku based toolchain for building and deploying applications
+
+
+https://github.com/experimental-platform/platform-central-gateway
+
+HTTP router (will probably be replaced with HAProxy)
+
+
+https://github.com/experimental-platform/platform-configure
+
+Systemd based configuration
+
+
+https://github.com/experimental-platform/platform-frontend
+
+Admin and api
+
+
+https://github.com/experimental-platform/platform-hardware
+
+udev device browser
+
+
+https://github.com/experimental-platform/platform-hostname-avahi
+
+Announcing the experimental platforms IP address via avahi/zeroconf
+
+
+https://github.com/experimental-platform/platform-hostname-smb
+
+Announcing the experimental platforms IP address via SMB/NMB protocol
+
+
+https://github.com/experimental-platform/platform-monitoring
+
+A microservice written in go that makes stats available through a simple http api
+
+
+https://github.com/experimental-platform/platform-ptw
+
+A microservice written in ruby that subscribes to the protonet publish to web interface
+
+
+https://github.com/experimental-platform/platform-pulseaudio
+
+Linux audio server
+
+
+https://github.com/experimental-platform/platform-skvs
+
+A microservice written in go that acts as a minimal key value service with a file system backend
+
+
+https://github.com/experimental-platform/platform-systemd-proxy
+
+A microservice written in go that makes certain systemd management functions available through a http api
+
+
+https://github.com/experimental-platform/platform-ubuntu
+
+An ubuntu base image that has all necessary customizations for the experimental platform
+
