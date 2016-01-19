@@ -31,7 +31,7 @@ That cool app that you just pushed to the experimental platform now needs a simp
 
 ### REST API
 
-A standard for the internet-of-things (IoT)? It's already here: REST. So no need to reinvent the weel. Experimental Platform aims to provide an easy way to access all of a smart devices capability. Wether it's reading sensors or actuating actuators.
+A standard for the internet-of-things (IoT)? It's already here: REST. So no need to reinvent the wheel. Experimental Platform aims to provide an easy way to access all of a smart devices capability. Whether it's reading sensors or actuating actuators.
 
 ### First things first
 
