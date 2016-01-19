@@ -1,3 +1,5 @@
+**!! This is just the README repository for the project - the actual repositories are all linked below !!**
+
 ![Experimental Platform](http://experimental-platform.github.io/img/static-logo.png)
 
 For us, working on sensor and IoT projects always meant spending hours on end trying to fiddle around with environments, obscure device APIs and figuring out how to access them remotely with languages and frameworks we didn't know.
